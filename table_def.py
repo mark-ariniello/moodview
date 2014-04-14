@@ -12,9 +12,12 @@ class Photo(Base):
     __tablename__ = "Photos"
     id = Column(Integer, primary_key=True)
     name = Column(String)
+    img_path Column(String)
     
-    def __init__(self, name):
+    def __init__(self, name, img_path):
 	""""""
+		name = self.name
+		img_path = self.img_path
 	
 	self.name = name
 #######################################################################

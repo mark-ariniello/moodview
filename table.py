@@ -10,12 +10,12 @@ Session = sessionmaker(bind=engine)
 session = Session()
  
 # Create a Photo(name, photo)
-p1 = Photo("Beach")
-p2 = Photo("Sunset")
-p3 = Photo("Mountains")
-p4 = Photo("Ocean")
-p5 = Photo("Stars")
-p6 = Photo("River")
+p1 = Photo("Beach", "/img/Beach")
+p2 = Photo("Sunset", "/img/Sunset")
+p3 = Photo("Mountains", "/img/Mountains")
+p4 = Photo("Ocean", "/img/Ocean")
+p5 = Photo("Stars", "/img/Stars")
+p6 = Photo("River", "/img/River")
  
 # Add the record to the session object
 session.add_all([p1,p2,p3,p4,p5,p6])
