@@ -162,9 +162,18 @@
 	</div>
 
       </div>
-      
+	
+	
+	<script language="javascript" type="text/javascript">
+	  var x = Math.floor((Math.random()*6)+1);
+	  openPage = function() {
+	  location.href = "simple_view.html/"+x;
+	  }
+	</script>
 
-      <button type="button" class="btn btn-success"><a href="simple_view.html">Submit</a></button>
+	
+
+      <button type="button" class="btn btn-success"><a href="javascript:openPage()">Submit</a></button>
     
      
 
