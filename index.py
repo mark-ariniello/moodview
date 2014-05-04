@@ -1,13 +1,10 @@
 import os
-import cgi
 from flask import Flask
 from flask import request
 from flask import render_template
 from flask import json
 from collections import namedtuple as NT
 from flask.ext.sqlalchemy import SQLAlchemy
-import cgitb
-cgitb.enable()
 
 v = int
 v1 = int
@@ -30,18 +27,11 @@ class Photo(db.Model):
 	def __init__(self, name, img_path):
 		self.name = name
 		self.img_path = img_path
-@app.route('/')
-@app.route('/question')
+@app.route('/', methods=['POST', 'GET'])
+@app.route('/question', methods=['POST', 'GET'])
 def question():
-	form = cgi.FieldStorage()
-        v1 = form.getvalue("hi")
-        v2 = form.getvalue("waveh")
-        v3 = form.getvalue("waves")
-        v4 = form.getvalue("what")
-        v5 = form.getvalue("ignore")
-
-        v = v1 + v2 + v3 + v4 + v5;
-        print v  
+	if request.method == 'Post':
+		print request.POST['username']
 	return render_template('question.html')
 
 @app.route('/simple_view.html')
@@ -54,7 +44,6 @@ def view(data=None):
 #		if item.id == data:
 #			dat = item.imge_path
 	return render_template('simple_view.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
