@@ -33,7 +33,16 @@ class Photo(db.Model):
 @app.route('/')
 @app.route('/question')
 def question():
-    return render_template('question.html')
+	form = cgi.FieldStorage()
+        v1 = form.getvalue("hi")
+        v2 = form.getvalue("waveh")
+        v3 = form.getvalue("waves")
+        v4 = form.getvalue("what")
+        v5 = form.getvalue("ignore")
+
+        v = v1 + v2 + v3 + v4 + v5;
+        print v  
+	return render_template('question.html')
 
 @app.route('/simple_view.html')
 @app.route('/simple_view.html/<data>')
@@ -46,15 +55,6 @@ def view(data=None):
 #			dat = item.imge_path
 	return render_template('simple_view.html')
 
-form = cgi.FieldStorage()
-v1 = form.getvalue("hi");
-v2 = form.getvalue("waveh");
-v3 = form.getvalue("waves");
-v4 = form.getvalue("what");
-v5 = form.getvalue("ignore");
-
-v = v1 + v2 + v3 + v4 + v5;
-print v
 
 if __name__ == '__main__':
     app.run(debug=True)
