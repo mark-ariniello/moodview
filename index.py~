@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///photos.db'
 db = SQLAlchemy(app)
 
 class Photo(db.Model):
-	tablename = "photos"
+	tablename = "Photos"
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(80), unique=True)
 	img_path = db.Column(db.String(120), unique=True)
@@ -21,12 +21,21 @@ class Photo(db.Model):
 	def __init__(self, name, img_path):
 		self.name = name
 		self.img_path = img_path
-
 @app.route('/')
 @app.route('/question')
 def question():
     return render_template('question.html')
 
+@app.route('/simple_view.html')
+@app.route('/simple_view.html/<data>')
+def view(data=None):
+#	temp = Photos.query.all()
+#	print temp
+#	dat = None
+#	for item in temp:
+#		if item.id == data:
+#			dat = item.imge_path
+	return render_template('simple_view.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
