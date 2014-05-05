@@ -81,10 +81,10 @@
 	</div>
 	<div class="col-lg-9 col-md-3 col-sm-3">
           <ul>
-            <li><font size="4">Your Mood: Fantastic!</font></li><br>
-	     <img src="{{ url_for('static', filename=image_path)}}">
+            <li><font size="4">Your Mood Picture: </font></li><br>
+	     
+        <img src="{{ url_for("static", filename=image_path) }}" width="500" height="200" alt="{{ image_path }}" title="Previous" border="0"> 
           </ul>
-          <h2>{{image_path.replace("img/","")}}</h2>
       </div>
 
     </div>
