@@ -81,7 +81,8 @@
           <ul>
             <li><font size="4">Your Mood Picture: </font></li><br>
 	     
-        <img src="{{ url_for("static", filename=image_path) }}" width="500" height="200" alt="{{ image_path }}" title="Previous" border="0"> 
+        <img src="{{ url_for('static', filename=image_path) }}" width="500" height="200" alt="{{ image_path }}" title="Previous" border="0"> 
+          <p> {{ name }}</p>
           </ul>
       </div>
 
